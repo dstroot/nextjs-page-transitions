@@ -1,5 +1,5 @@
 import Link from "next/link";
-import fetch from "isomorphic-unfetch";
+// import fetch from "isomorphic-unfetch";
 import { motion } from "framer-motion";
 import data from "../db/db.json";
 
@@ -37,15 +37,12 @@ const stagger = {
 
 const Index = (props) => (
   <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
-    <div className="container center">
-      <motion.div
-        animate={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-        className="title"
-      >
-        <h1>Select a protein</h1>
+    <div className="flex flex-col items-center justify-center h-screen">
+      {/* fullscreen  */}
+      <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+        <h1 className="mb-12 text-4xl">Select a Protein</h1>
       </motion.div>
-      <motion.div variants={stagger} className="product-row">
+      <motion.div variants={stagger} className="flex space-x-12">
         {props.products.map((product) => (
           <Link
             key={product.id}
@@ -56,9 +53,9 @@ const Index = (props) => (
               variants={fadeInUp}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="card"
+              className="max-w-md p-16 overflow-hidden bg-white shadow-lg cursor-pointer rounded-xl"
             >
-              <span className="category">Protein</span>
+              <div className="mb-6">Protein</div>
               <motion.img
                 initial={{ x: 60, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -67,8 +64,8 @@ const Index = (props) => (
                 src={product.image}
                 width={250}
               />
-              <div className="product-info">
-                <h4>{product.name}</h4>
+              <div className="flex items-center mt-6 space-x-4">
+                <h4 className="font-bold text">{product.name}</h4>
                 <span>{product.price}</span>
               </div>
             </motion.div>
