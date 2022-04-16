@@ -31,10 +31,10 @@ const fadeInUp = {
 
 const Product = (props) => (
   <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
-    <div className="h-screen fullscreen">
-      <div className=" h-screen flex items-enter justify-between product">
+    <div className="">
+      <div className="flex">
         <motion.div
-          className="img"
+          className="w-1/2 h-screen bg-[#dfdfdf] flex items-center justify-center"
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
         >
@@ -47,30 +47,41 @@ const Product = (props) => (
             transition={{ delay: 0.2 }}
           />
         </motion.div>
-        <div className="product-details">
-          <motion.div variants={stagger} className="inner">
+        <div className="flex items-center justify-center w-1/2 px-20">
+          <motion.div variants={stagger}>
             <Link href="/">
-              <motion.div variants={fadeInUp}>
-                {/* <a className="mb-12 cursor-pointer">&lt; Back to products</a> */}
-                <a className="go-back">&lt; Back to products</a>
+              <motion.div
+                variants={fadeInUp}
+                className="mb-12 text-lg font-semibold cursor-pointer"
+              >
+                <a>&lt; Back to products</a>
               </motion.div>
             </Link>
             <motion.div variants={fadeInUp}>
-              <span className="category">Protein</span>
+              <span className="text-gray-600">Protein</span>
             </motion.div>
             <motion.h1
               variants={fadeInUp}
-              className="text-5xl text-black font-extrabold mt-8 mb-8"
+              className="mt-8 mb-8 text-5xl font-extrabold text-black"
             >
               {props.product.name}
             </motion.h1>
-            <motion.p variants={fadeInUp}>{props.product.details}</motion.p>
-            <motion.div variants={fadeInUp} className="additonals">
-              <span>Soy Free</span>
-              <span>Gluten Free</span>
+            <motion.p variants={fadeInUp} className="text-gray-800">
+              {props.product.details}
+            </motion.p>
+            <motion.div variants={fadeInUp} className="mt-6 mb-6">
+              <span className="px-6 py-1 mr-4 border rounded-full bg-slate-200">
+                Soy Free
+              </span>
+              <span className="px-6 py-1 border rounded-full bg-slate-200">
+                Gluten Free
+              </span>
             </motion.div>
-            <motion.div variants={fadeInUp} className="qty-price">
-              <div className="inline-flex space-x-4">
+            <motion.div
+              variants={fadeInUp}
+              className="flex justify-between mt-4"
+            >
+              <div className="inline-flex items-center space-x-4">
                 <button class="bg-gray-200 outline px-2 rounded-full cursor-not-allowed">
                   -
                 </button>
@@ -84,11 +95,11 @@ const Product = (props) => (
               </span>
               {/* price */}
             </motion.div>
-            <motion.div variants={fadeInUp} className="btn-row">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <motion.div variants={fadeInUp} className="mt-6 mb-24">
+              <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
                 Add to cart
               </button>
-              <button className="ml-2 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+              <button className="px-4 py-2 ml-2 font-semibold text-blue-700 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white hover:border-transparent">
                 Subscribe
               </button>
             </motion.div>

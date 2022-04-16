@@ -37,15 +37,12 @@ const stagger = {
 
 const Index = (props) => (
   <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
-    <div className="h-screen flex justify-center items-center">
+    <div className="flex flex-col items-center justify-center h-screen">
       {/* fullscreen  */}
       <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
-        <h1 className="text-3xl">Select a protein</h1>
+        <h1 className="mb-12 text-4xl">Select a Protein</h1>
       </motion.div>
-      <motion.div
-        variants={stagger}
-        className="flex w-full justify-center items-center space-x-12"
-      >
+      <motion.div variants={stagger} className="flex space-x-12">
         {props.products.map((product) => (
           <Link
             key={product.id}
@@ -56,9 +53,9 @@ const Index = (props) => (
               variants={fadeInUp}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white max-w-md p-16 cursor-pointer rounded-xl overflow-hidden shadow-lg"
+              className="max-w-md p-16 overflow-hidden bg-white shadow-lg cursor-pointer rounded-xl"
             >
-              <span className="category">Protein</span>
+              <div className="mb-6">Protein</div>
               <motion.img
                 initial={{ x: 60, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -67,8 +64,8 @@ const Index = (props) => (
                 src={product.image}
                 width={250}
               />
-              <div className="flex items-center space-x-4">
-                <h4 className="text font-bold">{product.name}</h4>
+              <div className="flex items-center mt-6 space-x-4">
+                <h4 className="font-bold text">{product.name}</h4>
                 <span>{product.price}</span>
               </div>
             </motion.div>
