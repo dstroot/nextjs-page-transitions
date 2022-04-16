@@ -2,6 +2,7 @@ import React from "react";
 import App from "next/app";
 import { AnimatePresence } from "framer-motion";
 import "../styles/styles.css";
+import "../styles/global.css";
 
 class MyApp extends App {
   render() {
