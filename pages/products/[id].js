@@ -51,6 +51,7 @@ const Product = (props) => (
           <motion.div variants={stagger} className="inner">
             <Link href="/">
               <motion.div variants={fadeInUp}>
+                {/* <a className="text-lg mb-12 cursor-pointer">Back to products</a> */}
                 <a className="go-back">Back to products</a>
               </motion.div>
             </Link>
@@ -88,7 +89,8 @@ Product.getInitialProps = async function (context) {
   //   `https://my-json-server.typicode.com/wrongakram/demo/products/${id}`
   // );
   // const product = await res.json();
-  console.log(stuff);
+
+  // simulate API
   const product = stuff.find((stuff) => stuff.id === id);
   return { product };
 };
