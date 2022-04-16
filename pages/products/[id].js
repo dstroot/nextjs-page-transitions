@@ -1,7 +1,7 @@
-import fetch from "isomorphic-unfetch";
+// import fetch from "isomorphic-unfetch";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import stuff from "../../db.json";
+import data from "../../db/db.json";
 
 let easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -31,8 +31,8 @@ const fadeInUp = {
 
 const Product = (props) => (
   <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
-    <div className="fullscreen">
-      <div className="product">
+    <div className="h-screen fullscreen">
+      <div className=" h-screen flex items-enter justify-between product">
         <motion.div
           className="img"
           animate={{ opacity: 1 }}
@@ -94,13 +94,14 @@ const Product = (props) => (
 
 Product.getInitialProps = async function (context) {
   const { id } = context.query;
+
   // const res = await fetch(
   //   `https://my-json-server.typicode.com/wrongakram/demo/products/${id}`
   // );
   // const product = await res.json();
 
   // simulate API
-  const product = stuff.find((stuff) => stuff.id === id);
+  const product = data.find((data) => data.id === id);
   return { product };
 };
 
