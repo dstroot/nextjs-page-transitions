@@ -70,12 +70,19 @@ const Product = (props) => (
               <span>Gluten Free</span>
             </motion.div>
             <motion.div variants={fadeInUp} className="qty-price">
-              <div className="qty">
-                <div className="minus">-</div>
-                <div className="amount">1</div>
-                <div className="add">+</div>
+              <div className="inline-flex space-x-4">
+                <button class="bg-gray-200 outline px-2 rounded-full cursor-not-allowed">
+                  -
+                </button>
+                <div className="">1</div>
+                <button class="bg-transparent outline px-2 rounded-full">
+                  +
+                </button>
               </div>
-              <span className="price">{props.product.price}</span>
+              <span className="text-2xl font-bold text-gray-900">
+                {props.product.price}
+              </span>
+              {/* price */}
             </motion.div>
             <motion.div variants={fadeInUp} className="btn-row">
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
