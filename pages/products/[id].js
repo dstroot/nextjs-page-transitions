@@ -51,14 +51,19 @@ const Product = (props) => (
           <motion.div variants={stagger} className="inner">
             <Link href="/">
               <motion.div variants={fadeInUp}>
-                {/* <a className="text-lg mb-12 cursor-pointer">Back to products</a> */}
-                <a className="go-back">Back to products</a>
+                {/* <a className="mb-12 cursor-pointer">&lt; Back to products</a> */}
+                <a className="go-back">&lt; Back to products</a>
               </motion.div>
             </Link>
             <motion.div variants={fadeInUp}>
               <span className="category">Protein</span>
             </motion.div>
-            <motion.h1 variants={fadeInUp}>{props.product.name}</motion.h1>
+            <motion.h1
+              variants={fadeInUp}
+              className="text-5xl text-black font-extrabold mt-8 mb-8"
+            >
+              {props.product.name}
+            </motion.h1>
             <motion.p variants={fadeInUp}>{props.product.details}</motion.p>
             <motion.div variants={fadeInUp} className="additonals">
               <span>Soy Free</span>
@@ -73,8 +78,12 @@ const Product = (props) => (
               <span className="price">{props.product.price}</span>
             </motion.div>
             <motion.div variants={fadeInUp} className="btn-row">
-              <button className="add-to-cart"> Add to cart</button>
-              <button className="subscribe"> Subscribe</button>
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Add to cart
+              </button>
+              <button className="ml-2 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                Subscribe
+              </button>
             </motion.div>
           </motion.div>
         </div>
