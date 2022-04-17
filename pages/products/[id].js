@@ -50,7 +50,7 @@ const Product = (props) => (
       {/* Right side */}
       <div className="flex items-center justify-center w-1/2 px-20">
         <motion.div variants={stagger}>
-          <Link href="/">
+          <Link href="/" passHref>
             <motion.div
               variants={fadeInUp}
               className="mb-12 text-lg font-semibold cursor-pointer"

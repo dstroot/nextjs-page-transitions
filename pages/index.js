@@ -48,8 +48,9 @@ const Index = (props) => (
             key={product.id}
             href="/products/[id]"
             as={`/products/${product.id}`}
+            passHref
           >
-            <motion.div
+            <motion.a
               variants={fadeInUp}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -68,7 +69,7 @@ const Index = (props) => (
                 <h4 className="font-bold text">{product.name}</h4>
                 <span>{product.price}</span>
               </div>
-            </motion.div>
+            </motion.a>
           </Link>
         ))}
       </motion.div>
