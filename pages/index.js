@@ -55,7 +55,7 @@ const Index = (props) => (
               whileTap={{ scale: 0.95 }}
               className="max-w-md p-16 overflow-hidden bg-white shadow-lg cursor-pointer rounded-xl"
             >
-              <div className="mb-6">Protein</div>
+              <div className="mb-6 text-gray-700">Protein</div>
               <motion.img
                 initial={{ x: 60, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
