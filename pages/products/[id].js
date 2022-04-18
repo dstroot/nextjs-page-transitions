@@ -1,8 +1,11 @@
 // import fetch from "isomorphic-unfetch";
 // import { motion } from "framer-motion";
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { LazyMotion, m } from "framer-motion";
 import Link from "next/link";
 import data from "../../db/db.json";
+// motion features (domAnimation)
+const loadFeatures = () =>
+  import("../../lib/features.js").then((res) => res.default);
 
 let easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -31,7 +34,7 @@ const fadeInUp = {
 };
 
 const Product = (props) => (
-  <LazyMotion features={domAnimation}>
+  <LazyMotion features={loadFeatures}>
     <m.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
       <div className="flex">
         {/* Left side */}
