@@ -42,7 +42,7 @@ const stagger = {
 };
 
 const Index = (props) => (
-  <LazyMotion features={loadFeatures}>
+  <LazyMotion strict features={loadFeatures}>
     <m.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
       <div className="flex flex-col items-center justify-center h-screen">
         {/* fullscreen  */}

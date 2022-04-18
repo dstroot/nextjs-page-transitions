@@ -34,7 +34,7 @@ const fadeInUp = {
 };
 
 const Product = (props) => (
-  <LazyMotion features={loadFeatures}>
+  <LazyMotion strict features={loadFeatures}>
     <m.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
       <div className="flex">
         {/* Left side */}
