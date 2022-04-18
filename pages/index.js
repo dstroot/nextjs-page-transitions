@@ -1,6 +1,8 @@
 import Link from "next/link";
 // import fetch from "isomorphic-unfetch";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
+
 import data from "../db/db.json";
 
 // Our custom easing
@@ -36,45 +38,47 @@ const stagger = {
 };
 
 const Index = (props) => (
-  <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
-    <div className="flex flex-col items-center justify-center h-screen">
-      {/* fullscreen  */}
-      <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
-        <h1 className="mb-12 text-4xl">Select a Protein</h1>
-      </motion.div>
-      <motion.div variants={stagger} className="flex space-x-12">
-        {props.products.map((product) => (
-          <Link
-            key={product.id}
-            href="/products/[id]"
-            as={`/products/${product.id}`}
-            passHref
-          >
-            <motion.a
-              variants={fadeInUp}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="max-w-md p-16 overflow-hidden bg-white shadow-lg cursor-pointer rounded-xl"
+  <LazyMotion features={domAnimation}>
+    <m.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
+      <div className="flex flex-col items-center justify-center h-screen">
+        {/* fullscreen  */}
+        <m.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+          <h1 className="mb-12 text-4xl">Select a Protein</h1>
+        </m.div>
+        <m.div variants={stagger} className="flex space-x-12">
+          {props.products.map((product) => (
+            <Link
+              key={product.id}
+              href="/products/[id]"
+              as={`/products/${product.id}`}
+              passHref
             >
-              <div className="mb-6 text-gray-700">Protein</div>
-              <motion.img
-                initial={{ x: 60, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                key={product.image}
-                src={product.image}
-                width={250}
-              />
-              <div className="flex items-center mt-6 space-x-4">
-                <h4 className="font-bold text">{product.name}</h4>
-                <span>{product.price}</span>
-              </div>
-            </motion.a>
-          </Link>
-        ))}
-      </motion.div>
-    </div>
-  </motion.div>
+              <m.a
+                variants={fadeInUp}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="max-w-md p-16 overflow-hidden bg-white shadow-lg cursor-pointer rounded-xl"
+              >
+                <div className="mb-6 text-gray-700">Protein</div>
+                <m.img
+                  initial={{ x: 60, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  key={product.image}
+                  src={product.image}
+                  width={250}
+                />
+                <div className="flex items-center mt-6 space-x-4">
+                  <h4 className="font-bold text">{product.name}</h4>
+                  <span>{product.price}</span>
+                </div>
+              </m.a>
+            </Link>
+          ))}
+        </m.div>
+      </div>
+    </m.div>
+  </LazyMotion>
 );
 
 Index.getInitialProps = async function () {
