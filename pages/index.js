@@ -49,7 +49,10 @@ const Index = (props) => (
         <m.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
           <h1 className="mb-12 text-4xl">Select a Protein</h1>
         </m.div>
-        <m.div variants={stagger} className="flex space-x-12">
+        <m.div
+          variants={stagger}
+          className="flex flex-wrap justify-center md:space-x-12"
+        >
           {props.products.map((product) => (
             <Link
               key={product.id}
@@ -61,7 +64,7 @@ const Index = (props) => (
                 variants={fadeInUp}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="max-w-md p-16 overflow-hidden bg-white shadow-lg cursor-pointer rounded-xl"
+                className="max-w-md min-w-[80%] md:min-w-[40%] p-16 mb-6 overflow-hidden bg-white shadow-lg cursor-pointer rounded-xl md:mb-0"
               >
                 <div className="mb-6 text-gray-700">Protein</div>
                 <m.img

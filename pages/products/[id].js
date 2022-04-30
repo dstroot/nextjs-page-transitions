@@ -36,7 +36,7 @@ const fadeInUp = {
 const Product = (props) => (
   <LazyMotion strict features={loadFeatures}>
     <m.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
-      <div className="flex">
+      <div className="flex flex-wap">
         {/* Left side */}
         <m.div
           className="w-1/2 h-screen bg-[#dfdfdf] flex items-center justify-center"
