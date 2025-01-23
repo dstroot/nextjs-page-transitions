@@ -58,28 +58,23 @@ const Index = (props) => (
             key={product.id}
             href="/products/[id]"
             as={`/products/${product.id}`}
+            className="max-w-md min-w-[80%] md:min-w-[40%] p-16 mb-6 overflow-hidden bg-white shadow-lg cursor-pointer rounded-xl md:mb-0"
             passHref
+            variants={fadeInUp}
           >
-            <m.a
-              variants={fadeInUp}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="max-w-md min-w-[80%] md:min-w-[40%] p-16 mb-6 overflow-hidden bg-white shadow-lg cursor-pointer rounded-xl md:mb-0"
-            >
-              <div className="mb-6 text-gray-700">Protein</div>
-              <m.img
-                initial={{ x: 60, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                key={product.image}
-                src={product.image}
-                width={250}
-              />
-              <div className="flex items-center mt-6 space-x-4">
-                <h4 className="font-bold text">{product.name}</h4>
-                <span>{product.price}</span>
-              </div>
-            </m.a>
+            <div className="mb-6 text-gray-700">Protein</div>
+            <m.img
+              initial={{ x: 60, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              key={product.image}
+              src={product.image}
+              width={250}
+            />
+            <div className="flex items-center mt-6 space-x-4">
+              <h4 className="font-bold text">{product.name}</h4>
+              <span>{product.price}</span>
+            </div>
           </Link>
         ))}
       </m.div>
